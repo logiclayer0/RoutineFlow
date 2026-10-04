@@ -1,58 +1,17 @@
-# Build from the project root with:
-# docker build -f routineflow_server/Dockerfile .
+FROM dart:stable AS build
 
-# Build stage
-FROM dart:3.12.2 AS build
-
-# Create a minimal workspace that preserves locked server dependency versions.
 WORKDIR /app
-COPY pubspec.lock .
-COPY routineflow_server routineflow_server
-RUN printf '%s\n' \
-  'name: _' \
-  'environment:' \
-  '  sdk: ^3.12.2' \
-  'workspace:' \
-  '  - routineflow_server' \
-  > pubspec.yaml
+COPY pubspec.* ./
 RUN dart pub get
+COPY . .
+RUN dart pub get --offline
+RUN dart compile exe bin/main.dart -o bin/server
 
-# Compile the server executable.
-WORKDIR /app/routineflow_server
-RUN dart build cli --target bin/main.dart --output build
-RUN mv build/bundle/bin/main build/bundle/bin/server
-
-# Add a fallback for the copy of possibly missing directories.
-RUN mkdir -p config web migrations
-
-# Final stage
-FROM alpine:latest
-WORKDIR /app
-
-# Environment variables
-ENV runmode=production
-ENV serverid=default
-ENV logging=normal
-ENV role=monolith
-
-# Copy runtime dependencies
+FROM scratch
 COPY --from=build /runtime/ /
+COPY --from=build /app/bin/server /app/bin/
+COPY --from=build /app/config/ /app/config/
+COPY --from=build /app/web/ /app/web/
 
-# Copy compiled server executable and native libraries
-COPY --from=build /app/routineflow_server/build/bundle/ ./
-
-# Copy configuration files and resources
-COPY --from=build /app/routineflow_server/config/ config/
-COPY --from=build /app/routineflow_server/web/ web/
-COPY --from=build /app/routineflow_server/migrations/ migrations/
-
-# This file is required to enable the endpoint log filter in Insights.
-COPY --from=build /app/routineflow_server/lib/src/generated/protocol.yaml lib/src/generated/protocol.yaml
-
-# Expose ports
-EXPOSE 8080
-EXPOSE 8081
-EXPOSE 8082
-
-# Define the entrypoint command
-ENTRYPOINT ./bin/server --mode=$runmode --server-id=$serverid --logging=$logging --role=$role
+EXPOSE 8080 8081 8082
+CMD ["/app/bin/server"]
