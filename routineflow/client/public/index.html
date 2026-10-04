@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoutineFlow</title>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1>RoutineFlow</h1>
+      <p id="current-date"></p>
+    </header>
+
+    <section class="progress-section">
+      <div class="progress-label">
+        <span>Weekly Execution Rate</span>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="input-section">
+      <input type="text" id="routine-input" placeholder="Create new routine target..." />
+      <button id="add-routine-btn">Commit Routine</button>
+    </section>
+
+    <section class="routine-list-section">
+      <div class="routine-header">
+        <span>ROUTINE SPECIFICATION</span>
+        <div class="days-header" id="days-header"></div>
+        <span>CURRENT STREAK</span>
+        <span>MANAGE</span>
+      </div>
+      <div id="routine-list"></div>
+    </section>
+  </div>
+
+  <script type="module" src="/src/js/app.js"></script>
+</body>
+</html>
