@@ -1,6 +1,0 @@
-class: Routine
-table: routine
-fields:
-  name: String
-  createdAt: DateTime
-  isActive: bool

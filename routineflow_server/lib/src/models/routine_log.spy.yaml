@@ -1,6 +1,0 @@
-class: RoutineLog
-table: routine_log
-fields:
-  routineId: int
-  date: DateTime
-  completed: bool
