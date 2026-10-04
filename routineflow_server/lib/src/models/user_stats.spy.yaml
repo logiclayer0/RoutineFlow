@@ -1,0 +1,9 @@
+class: UserStats
+table: user_stats
+fields:
+  userId: String
+  xp: int
+  level: int
+  currentStreak: int
+  longestStreak: int
+  lastActive: DateTime
