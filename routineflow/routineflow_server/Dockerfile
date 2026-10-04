@@ -10,8 +10,8 @@ RUN dart build cli --target bin/main.dart --output build
 FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /app/build/ /app/build/
-COPY --from=build /app/config/ /app/config/
-COPY --from=build /app/web/ /app/web/
+COPY --from=build /app/config/ /app/build/config/
+COPY --from=build /app/web/ /app/build/web/
 
 EXPOSE 8080 8081 8082
 CMD ["/app/build/bin/main"]
