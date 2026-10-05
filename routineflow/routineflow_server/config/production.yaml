@@ -23,5 +23,7 @@ database:
   user: ${SERVERPOD_DATABASE_USER}
   password: ${SERVERPOD_DATABASE_PASSWORD}
 
+applyMigrations: true
+
 redis:
   enabled: false
