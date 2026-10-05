@@ -1,5 +1,5 @@
 services:
-  # Development services
+
   postgres:
     image: ghcr.io/serverpod/postgres:16
     ports:
@@ -12,7 +12,7 @@ services:
       - routineflow_data:/var/lib/postgresql/data
 
 
-  # Test services
+
   postgres_test:
     image: ghcr.io/serverpod/postgres:16
     ports:
