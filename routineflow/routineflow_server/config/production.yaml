@@ -1,6 +1,6 @@
 apiServer:
   port: 8080
-  publicHost: routineflow-backend.onrender.com
+  publicHost: routineflow-pn7x.onrender.com
   publicPort: 443
   publicScheme: https
 
