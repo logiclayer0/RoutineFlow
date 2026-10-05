@@ -12,6 +12,7 @@ WORKDIR /app
 COPY --from=build /app/build/bundle/ /app/build/bundle/
 COPY --from=build /app/config/ /app/config/
 COPY --from=build /app/web/ /app/web/
+COPY --from=build /app/migrations/ /app/migrations/
 
 ENV DART_VM_OPTIONS="--old_gen_heap_size=256"
 
