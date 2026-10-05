@@ -1,16 +1,16 @@
-/* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
-/*   To generate run: "serverpod generate"    */
+                                                
+                                                
 
-// ignore_for_file: implementation_imports
-// ignore_for_file: library_private_types_in_public_api
-// ignore_for_file: non_constant_identifier_names
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: type_literal_in_constant_pattern
-// ignore_for_file: use_super_parameters
-// ignore_for_file: invalid_use_of_internal_member
-// ignore_for_file: dead_code, unnecessary_type_check
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+
+
+
+
+
+
+
+
+
 import 'package:routineflow_client/src/protocol/routine.dart' as _ik94qckj;
 import 'package:routineflow_client/src/protocol/routine_log.dart' as _ivecpi58;
 import 'package:serverpod_auth_core_client/serverpod_auth_core_client.dart'
@@ -54,9 +54,9 @@ class Protocol extends _isc.SerializationManager {
           'data': data,
         });
       } on _isc.DeserializationClassNameNotFoundException catch (_) {
-        // If the className is not recognized (e.g., older client receiving
-        // data with a new subtype), fall back to deserializing without the
-        // className, using the expected type T.
+        
+        
+        
       }
     }
 
@@ -180,11 +180,11 @@ class Protocol extends _isc.SerializationManager {
   @override
   String getModuleName() => 'routineflow';
 
-  /// Maps any `Record`s known to this [Protocol] to their JSON representation
-  ///
-  /// Throws in case the record type is not known.
-  ///
-  /// This method will return `null` (only) for `null` inputs.
+  
+  
+  
+  
+  
   Map<String, dynamic>? mapRecordToJson(Record? record) {
     if (record == null) {
       return null;
