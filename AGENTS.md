@@ -1,4 +1,4 @@
-# Serverpod project
+
 
 This project is a Serverpod server (backend).
 Build for multiple users, use Serverpod's built-in authentication, which is already set up in `lib/server.dart`.
