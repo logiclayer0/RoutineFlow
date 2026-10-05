@@ -1,4 +1,6 @@
-const API_BASE = 'http://localhost:8080';
+const API_BASE = import.meta.env.PROD
+  ? 'https://routineflow-backend.onrender.com'
+  : 'http://localhost:8080';
 
 async function callServerpod(endpoint, params = {}) {
   const res = await fetch(`${API_BASE}${endpoint}`, {
