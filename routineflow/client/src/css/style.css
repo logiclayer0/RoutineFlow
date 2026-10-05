@@ -31,7 +31,7 @@ body {
   min-height: 100vh;
 }
 
-/* Sidebar */
+             
 .sidebar {
   background: var(--bg-elev);
   border-right: 1px solid var(--border);
@@ -102,7 +102,7 @@ body {
 .user-name { font-size: 13px; font-weight: 600; }
 .user-role { font-size: 11px; color: var(--text-dim); }
 
-/* Main */
+          
 .main {
   padding: 32px 40px;
   display: flex;
@@ -130,7 +130,7 @@ body {
 .stat-label { font-size: 12px; color: var(--text-dim); }
 .stat-value { font-size: 14px; font-weight: 700; color: var(--success); }
 
-/* Metric grid */
+                 
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -153,7 +153,7 @@ body {
 .metric-label { font-size: 12px; color: var(--text-dim); font-weight: 500; }
 .metric-value { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
 
-/* Progress */
+              
 .progress-panel {
   background: var(--bg-elev);
   border: 1px solid var(--border);
@@ -181,7 +181,7 @@ body {
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Composer */
+              
 .composer {
   display: flex; gap: 12px;
 }
@@ -221,7 +221,7 @@ body {
   box-shadow: 0 10px 24px rgba(124, 92, 255, 0.35);
 }
 
-/* Board */
+           
 .board {
   background: var(--bg-elev);
   border: 1px solid var(--border);
