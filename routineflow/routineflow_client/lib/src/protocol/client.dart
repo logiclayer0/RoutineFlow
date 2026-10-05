@@ -1,15 +1,15 @@
-/* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
-/*   To generate run: "serverpod generate"    */
+                                                
+                                                
 
-// ignore_for_file: implementation_imports
-// ignore_for_file: library_private_types_in_public_api
-// ignore_for_file: non_constant_identifier_names
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: type_literal_in_constant_pattern
-// ignore_for_file: use_super_parameters
-// ignore_for_file: invalid_use_of_internal_member
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+
+
+
+
+
+
+
+
 import 'dart:async' as _ida;
 import 'package:http/http.dart' as _i85jenna;
 import 'package:routineflow_client/src/protocol/routine.dart' as _ik94qckj;
@@ -21,25 +21,25 @@ import 'package:serverpod_auth_idp_client/serverpod_auth_idp_client.dart'
 import 'package:serverpod_client/serverpod_client.dart' as _isc;
 import 'protocol.dart' as _il2as5qe;
 
-/// By extending [EmailIdpBaseEndpoint], the email identity provider endpoints
-/// are made available on the server and enable the corresponding sign-in widget
-/// on the client.
-/// {@category Endpoint}
+
+
+
+
 class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
   EndpointEmailIdp(_isc.EndpointCaller caller) : super(caller);
 
   @override
   String get name => 'emailIdp';
 
-  /// Logs in the user and returns a new session.
-  ///
-  /// Throws an [EmailAccountLoginException] in case of errors, with reason:
-  /// - [EmailAccountLoginExceptionReason.invalidCredentials] if the email or
-  ///   password is incorrect.
-  /// - [EmailAccountLoginExceptionReason.tooManyAttempts] if there have been
-  ///   too many failed login attempts.
-  ///
-  /// Throws an [AuthUserBlockedException] if the auth user is blocked.
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<_iacc.AuthSuccess> login({
     required String email,
@@ -53,16 +53,16 @@ class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
     },
   );
 
-  /// Starts the registration for a new user account with an email-based login
-  /// associated to it.
-  ///
-  /// Upon successful completion of this method, an email will have been
-  /// sent to [email] with a verification link, which the user must open to
-  /// complete the registration.
-  ///
-  /// Always returns a account request ID, which can be used to complete the
-  /// registration. If the email is already registered, the returned ID will not
-  /// be valid.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<_isc.UuidValue> startRegistration({required String email}) =>
       caller.callServerEndpoint<_isc.UuidValue>(
@@ -71,16 +71,16 @@ class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
         {'email': email},
       );
 
-  /// Verifies an account request code and returns a token
-  /// that can be used to complete the account creation.
-  ///
-  /// Throws an [EmailAccountRequestException] in case of errors, with reason:
-  /// - [EmailAccountRequestExceptionReason.expired] if the account request has
-  ///   already expired.
-  /// - [EmailAccountRequestExceptionReason.policyViolation] if the password
-  ///   does not comply with the password policy.
-  /// - [EmailAccountRequestExceptionReason.invalid] if no request exists
-  ///   for the given [accountRequestId] or [verificationCode] is invalid.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<String> verifyRegistrationCode({
     required _isc.UuidValue accountRequestId,
@@ -94,20 +94,20 @@ class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
     },
   );
 
-  /// Completes a new account registration, creating a new auth user with a
-  /// profile and attaching the given email account to it.
-  ///
-  /// Throws an [EmailAccountRequestException] in case of errors, with reason:
-  /// - [EmailAccountRequestExceptionReason.expired] if the account request has
-  ///   already expired.
-  /// - [EmailAccountRequestExceptionReason.policyViolation] if the password
-  ///   does not comply with the password policy.
-  /// - [EmailAccountRequestExceptionReason.invalid] if the [registrationToken]
-  ///   is invalid.
-  ///
-  /// Throws an [AuthUserBlockedException] if the auth user is blocked.
-  ///
-  /// Returns a session for the newly created user.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<_iacc.AuthSuccess> finishRegistration({
     required String registrationToken,
@@ -121,19 +121,19 @@ class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
     },
   );
 
-  /// Requests a password reset for [email].
-  ///
-  /// If the email address is registered, an email with reset instructions will
-  /// be send out. If the email is unknown, this method will have no effect.
-  ///
-  /// Always returns a password reset request ID, which can be used to complete
-  /// the reset. If the email is not registered, the returned ID will not be
-  /// valid.
-  ///
-  /// Throws an [EmailAccountPasswordResetException] in case of errors, with reason:
-  /// - [EmailAccountPasswordResetExceptionReason.tooManyAttempts] if the user has
-  ///   made too many attempts trying to request a password reset.
-  ///
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<_isc.UuidValue> startPasswordReset({required String email}) =>
       caller.callServerEndpoint<_isc.UuidValue>(
@@ -142,20 +142,20 @@ class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
         {'email': email},
       );
 
-  /// Verifies a password reset code and returns a finishPasswordResetToken
-  /// that can be used to finish the password reset.
-  ///
-  /// Throws an [EmailAccountPasswordResetException] in case of errors, with reason:
-  /// - [EmailAccountPasswordResetExceptionReason.expired] if the password reset
-  ///   request has already expired.
-  /// - [EmailAccountPasswordResetExceptionReason.tooManyAttempts] if the user has
-  ///   made too many attempts trying to verify the password reset.
-  /// - [EmailAccountPasswordResetExceptionReason.invalid] if no request exists
-  ///   for the given [passwordResetRequestId] or [verificationCode] is invalid.
-  ///
-  /// If multiple steps are required to complete the password reset, this endpoint
-  /// should be overridden to return credentials for the next step instead
-  /// of the credentials for setting the password.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<String> verifyPasswordResetCode({
     required _isc.UuidValue passwordResetRequestId,
@@ -169,20 +169,20 @@ class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
     },
   );
 
-  /// Completes a password reset request by setting a new password.
-  ///
-  /// The [verificationCode] returned from [verifyPasswordResetCode] is used to
-  /// validate the password reset request.
-  ///
-  /// Throws an [EmailAccountPasswordResetException] in case of errors, with reason:
-  /// - [EmailAccountPasswordResetExceptionReason.expired] if the password reset
-  ///   request has already expired.
-  /// - [EmailAccountPasswordResetExceptionReason.policyViolation] if the new
-  ///   password does not comply with the password policy.
-  /// - [EmailAccountPasswordResetExceptionReason.invalid] if no request exists
-  ///   for the given [passwordResetRequestId] or [verificationCode] is invalid.
-  ///
-  /// Throws an [AuthUserBlockedException] if the auth user is blocked.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<void> finishPasswordReset({
     required String finishPasswordResetToken,
@@ -204,38 +204,38 @@ class EndpointEmailIdp extends _iaic.EndpointEmailIdpBase {
   );
 }
 
-/// By extending [RefreshJwtTokensEndpoint], the JWT token refresh endpoint
-/// is made available on the server and enables automatic token refresh on the client.
-/// {@category Endpoint}
+
+
+
 class EndpointJwtRefresh extends _iacc.EndpointRefreshJwtTokens {
   EndpointJwtRefresh(_isc.EndpointCaller caller) : super(caller);
 
   @override
   String get name => 'jwtRefresh';
 
-  /// Creates a new token pair for the given [refreshToken].
-  ///
-  /// If [refreshToken] is omitted, cookie-mode web clients fall back to the
-  /// configured HttpOnly refresh cookie. When neither source is present this
-  /// throws [RefreshTokenNotFoundException], the same public "no usable refresh
-  /// credential" exception used for unknown refresh tokens.
-  ///
-  /// Can throw the following exceptions:
-  /// -[RefreshTokenMalformedException]: refresh token is malformed and could
-  ///   not be parsed. Not expected to happen for tokens issued by the server.
-  /// -[RefreshTokenNotFoundException]: refresh token is unknown to the server.
-  ///   Either the token was deleted or generated by a different server.
-  /// -[RefreshTokenExpiredException]: refresh token has expired. Will happen
-  ///   only if it has not been used within configured `refreshTokenLifetime`.
-  /// -[RefreshTokenInvalidSecretException]: refresh token is incorrect, meaning
-  ///   it does not refer to the current secret refresh token. This indicates
-  ///   either a malfunctioning client or a malicious attempt by someone who has
-  ///   obtained the refresh token. In this case the underlying refresh token
-  ///   will be deleted, and access to it will expire fully when the last access
-  ///   token is elapsed.
-  ///
-  /// This endpoint is unauthenticated, meaning the client won't include any
-  /// authentication information with the call.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   @override
   _ida.Future<_iacc.AuthSuccess> refreshAccessToken({String? refreshToken}) =>
       caller.callServerEndpoint<_iacc.AuthSuccess>(
@@ -246,7 +246,7 @@ class EndpointJwtRefresh extends _iacc.EndpointRefreshJwtTokens {
       );
 }
 
-/// {@category Endpoint}
+
 class EndpointProgress extends _isc.EndpointRef {
   EndpointProgress(_isc.EndpointCaller caller) : super(caller);
 
@@ -273,7 +273,7 @@ class EndpointProgress extends _isc.EndpointRef {
       );
 }
 
-/// {@category Endpoint}
+
 class EndpointRoutine extends _isc.EndpointRef {
   EndpointRoutine(_isc.EndpointCaller caller) : super(caller);
 
@@ -321,7 +321,7 @@ class EndpointRoutine extends _isc.EndpointRef {
       );
 }
 
-/// {@category Endpoint}
+
 class EndpointGreetings extends _isc.EndpointRef {
   EndpointGreetings(_isc.EndpointCaller caller) : super(caller);
 
