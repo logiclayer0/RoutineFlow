@@ -105,10 +105,6 @@ Potential areas for future development include:
 
 Ideas, bug reports, and improvements are welcome. You can open an issue or submit a pull request through the [GitHub repository](https://github.com/logiclayer0/RoutineFlow).
 
-## License
 
-No license information is specified here. Please check the repository for license details before reusing or distributing the code.
-
----
 
 Made to make everyday routines easier to manage, one step at a time.
